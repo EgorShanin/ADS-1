@@ -44,8 +44,8 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
-    uint64_t countHigh=0;
-    uint64_t numHigh=0;
+    uint64_t countHigh = 0;
+    uint64_t numHigh = 0;
     if (value == 2) {
         return 3;
     } else if (value < 2) {
@@ -58,7 +58,7 @@ uint64_t nextPrime(uint64_t value) {
                 }
             }
             if (countHigh == 1) {
-                numHigh=i;
+                numHigh = i;
                 break;
             }
             countHigh = 0;
