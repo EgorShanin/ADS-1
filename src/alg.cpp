@@ -44,28 +44,13 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
-    uint64_t countLow = 0;
-    uint64_t countHigh = 0;
-    uint64_t numLow = 0;
-    uint64_t numHigh = 0;
+    uint64_t countHigh=0;
+    uint64_t numHigh=0;
     if (value == 2) {
         return 3;
-    }
-    if (value < 2) {
+    } else if (value < 2) {
         return 2;
     } else {
-        for (uint64_t i = (value - 1); ; i--) {
-            for (uint64_t j = 1; j < i; j++) {
-                if (i % j == 0) {
-                    countLow++;
-                }
-            }
-            if (countLow == 1) {
-                numLow = i;
-                break;
-            }
-            countLow = 0;
-        }
         for (uint64_t i = (value + 1); ; i++) {
             for (uint64_t j = 1; j < i; j++) {
                 if (i % j == 0) {
@@ -73,16 +58,12 @@ uint64_t nextPrime(uint64_t value) {
                 }
             }
             if (countHigh == 1) {
-                numHigh = i;
+                numHigh=i;
                 break;
             }
             countHigh = 0;
         }
-        if ((value - numLow) < (numHigh - value)) {
-            return numLow;
-        } else {
-            return numHigh;
-        }
+        return numHigh;
     }
 }
 
